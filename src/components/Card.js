@@ -29,9 +29,12 @@ export const Card = () => {
             <div class="card col-12 col-lg-3  col-md-4 col-sm-6 p-0 d-flex mt-3">
                 <img src={el.images} class="card-img-top" alt="..." />
 
-                <div class="card-body">
-                    <h5 class="card-title">{el.title}</h5>
-                    {/* <p class="card-text">{el.id}</p> */}
+                <div class="card-body ">
+                    <div class="card-head d-flex justify-content-between">
+                        <h5 class="card-title">{el.title}</h5>
+                        <p class="card-text">{el.id}</p>
+                    </div>
+
                     <p class="card-text">{el.description}</p>
                     <a href="#" class="btn btn-primary">View</a>
                 </div>
@@ -46,10 +49,10 @@ function SetLoading() {
     const [loading, setLoading] = useState([]);
     const fetchCards = () => {
         fetch('https://api.escuelajs.co/api/v1/products')
-        .then(res => res.json())
-        .then(response => {
-            setLoading(response);
-        });
+            .then(res => res.json())
+            .then(response => {
+                setLoading(response);
+            });
     }
     useEffect(() => {
         console.log("Reloaded")
